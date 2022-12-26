@@ -1,22 +1,23 @@
+
 #include <stdio.h>
 
 // Function prototypes
-int add(int a, int b);
-int subtract(int a, int b);
-int multiply(int a, int b);
-int divide(int a, int b);
+double add(double a, double b);
+double subtract(double a, double b);
+double multiply(double a, double b);
+double divide(double a, double b);
 
 int main()
 {
     // Declare variables for the operands and the result
-    int operand1, operand2, result;
+    double operand1, operand2, result;
     
     // Prompt the user for the operands
     printf("Enter the first operand: ");
-    scanf("%d", &operand1);
+    scanf("%lf", &operand1);
     
     printf("Enter the second operand: ");
-    scanf("%d", &operand2);
+    scanf("%lf", &operand2);
     
     // Prompt the user for the operation
     printf("Enter the operation (+, -, *, /): ");
@@ -43,29 +44,29 @@ int main()
             return 1;
     }
     
-    // Print the result
-    printf("The result is: %d\n", result);
+    // Prdouble the result
+    printf("The result is: %lf\n", result);
     
     return 0;
 }
 
 // Function definitions
-int add(int a, int b)
+double add(double a, double b)
 {
     return a + b;
 }
 
-int subtract(int a, int b)
+double subtract(double a, double b)
 {
     return a - b;
 }
 
-int multiply(int a, int b)
+double multiply(double a, double b)
 {
     return a * b;
 }
 
-int divide(int a, int b)
+double divide(double a, double b)
 {
     return a / b;
 }
