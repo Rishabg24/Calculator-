@@ -44,7 +44,7 @@ int main()
             return 1;
     }
     
-    // Prdouble the result
+    // Print the result
     printf("The result is: %lf\n", result);
     
     return 0;
