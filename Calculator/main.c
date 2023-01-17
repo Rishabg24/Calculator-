@@ -9,6 +9,7 @@ double Subtract(double a, double b);
 double Multiply(double a, double b);
 double Divide(double a, double b);
 double Exponent(double a, double b);
+double Factorial(double a);
 
 
 int main()
@@ -17,17 +18,20 @@ int main()
     double  operand1, operand2, result, valid;
     char operation;
 
+    
+    // Prompt the user for the operation
+    printf("Enter the operation (+, -, *, /, ^, !): ");
+    scanf(" %c", &operation);
+
+    
     // Prompt the user for the operands
     printf("Enter the first operand: ");
     scanf("%lf", &operand1);
     printf("Enter the second operand: ");
     scanf("%lf", &operand2);
     
-    // Prompt the user for the operation
-    printf("Enter the operation (+, -, *, /, ^): ");
-    scanf(" %c", &operation);
 
-    
+
     // Perform the operation and store the result
     switch (operation)
     {
@@ -45,6 +49,9 @@ int main()
             break;
         case '^':
             result = Exponent(operand1, operand2);
+            break;
+        case '!':
+            result = Factorial(operand1);
             break;
         default:
             printf("Invalid operation.\n");
@@ -82,4 +89,20 @@ double Divide(double a, double b)
 double Exponent(double a, double b)
 {
     return pow(a,b);
+}
+
+double Factorial(double a)
+{
+    if (a<0)
+    {
+        return 0;
+    }
+    else if (a==0 || a==1){
+        return 1;
+    }
+    else{
+        return a * Factorial(a-1);
+    
+    }    
+    
 }
