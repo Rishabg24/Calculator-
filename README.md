@@ -1,2 +1,2 @@
 # Calculator-
-A simple Calculator that I created in C. My First Simple project in this language. 
+A simple Calculator that I created in C. My first imple project in this language. 
