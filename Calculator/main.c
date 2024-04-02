@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -9,28 +8,32 @@ double Subtract(double a, double b);
 double Multiply(double a, double b);
 double Divide(double a, double b);
 double Exponent(double a, double b);
-double Factorial(double a);
+double Factorial(double a); 
 
 
 int main()
 {
-     // Declare variables 
-    double  operand1, operand2, result, valid;
+    // Declare variables 
+    double operand1, operand2, result;
     char operation;
 
-    
     // Prompt the user for the operation
     printf("Enter the operation (+, -, *, /, ^, !): ");
     scanf(" %c", &operation);
 
-    
-    // Prompt the user for the operands
     printf("Enter the first operand: ");
-    scanf("%lf", &operand1);
-    printf("Enter the second operand: ");
-    scanf("%lf", &operand2);
-    
-
+    if( scanf("%lf", &operand1) != 1) {
+        printf("Error: First operand must be a number. \n"); 
+        return 1;
+    }
+   
+    if (operation != '!') { // Factorial operation doesn't require the second operand
+        printf("Enter the second operand: ");
+        if (scanf("%lf", &operand2) != 1) {
+            printf("Error: Second operand must be a number. \n");
+            return 1;
+        }
+    }
 
     // Perform the operation and store the result
     switch (operation)
@@ -56,12 +59,12 @@ int main()
         default:
             printf("Invalid operation.\n");
             return 1;
-            break;
     }
     
     // Print the result
     printf("The result is: %lf\n", result);
     
+    return 0;
 }
 
 
@@ -83,6 +86,10 @@ double Multiply(double a, double b)
 
 double Divide(double a, double b)
 {
+    if (b == 0) {
+        printf("Error: Division by zero.\n");
+        exit(1); // Exit the program if division by zero occurs
+    }
     return a / b;
 }
 
@@ -93,6 +100,10 @@ double Exponent(double a, double b)
 
 double Factorial(double a)
 {
+    if (a < 0 || (int)a != a) {
+        printf("Error: Factorial is defined only for non-negative integers.\n");
+        exit(1); 
+    }
     if (a<0)
     {
         return 0;
@@ -102,7 +113,5 @@ double Factorial(double a)
     }
     else{
         return a * Factorial(a-1);
-    
     }    
-    
 }
