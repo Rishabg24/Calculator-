@@ -27,7 +27,7 @@ int main()
         return 1;
     }
    
-    if (operation != '!') { // Factorial operation doesn't require the second operand
+    if (operation != '!') { 
         printf("Enter the second operand: ");
         if (scanf("%lf", &operand2) != 1) {
             printf("Error: Second operand must be a number. \n");
