@@ -104,10 +104,6 @@ double Factorial(double a)
         printf("Error: Factorial is defined only for non-negative integers.\n");
         exit(1); 
     }
-    if (a<0)
-    {
-        return 0;
-    }
     else if (a==0 || a==1){
         return 1;
     }
